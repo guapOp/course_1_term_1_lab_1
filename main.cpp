@@ -1,5 +1,5 @@
 #include "iostream"
-#include "generantor.h"
+#include "generator.h"
 
 using namespace std;
 

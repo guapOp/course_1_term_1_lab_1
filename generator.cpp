@@ -1,6 +1,5 @@
-#include "generantor.h"
-#include <cstdlib>
-#include <ctime>
+#include "generator.h"
+#include <random>
 #include <iostream>
 
 
@@ -28,11 +27,12 @@ namespace Generator {
         }
 
         string password;
-        srand(time(0));
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<> dis(0, characters.size() - 1);
 
         for (int i = 0; i < length; ++i) {
-            int randomIndex = rand() % characters.size();
-            password += characters[randomIndex];
+            password += characters[dis(gen)];
         }
 
         return password;
